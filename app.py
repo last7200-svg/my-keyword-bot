@@ -11,7 +11,18 @@ from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 import streamlit as st
+# 왼쪽 사이드바에 친절한 안내문 추가
+st.sidebar.markdown("---") # 줄 하나 긋기
+st.sidebar.info("""
+**🔑 사용 방법**
+1. 아래 [API 키 발급받기] 버튼을 클릭하세요.
+2. 구글 로그인을 하고 키를 만듭니다.
+3. 만들어진 키를 복사해서 아래 칸에 붙여넣으세요!
+""")
 
+# 클릭하면 바로 발급 페이지로 이동하는 버튼
+st.sidebar.link_button("🚀 API 키 발급받기 (무료)", "https://aistudio.google.com/app/apikey")
+st.sidebar.markdown("---")
 
 HISTORY_FILE = Path("history.csv")
 
